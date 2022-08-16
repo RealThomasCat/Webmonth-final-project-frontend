@@ -38,7 +38,8 @@ body {
   justify-content: space-evenly;
 }
 
-.signin-form, .signup-form {
+.signin-form,
+.signup-form {
   background-color: var(--glass-color);
   width: 400px;
   height: 500px;
@@ -51,6 +52,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.signin-form {
+  height: 325px;
 }
 
 input {
@@ -121,4 +126,34 @@ button {
   /* filter: blur(2px); */
   right: -50px;
   bottom: -80px;
+}
+
+@media only screen and (max-width: 750px) {
+  .form-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .signin-form, .signup-form {
+    width: 320px;
+  }
+
+  .signin-form {
+    height: 35vh;
+  }
+  
+  .signup-form {
+    height: 50vh;
+  }
+
+  .circle1,
+.circle2 {
+  z-index: -5;
+  position: absolute;
+  opacity: 1;
+  display: none;
+}
 }

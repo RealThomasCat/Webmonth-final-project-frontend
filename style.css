@@ -1,8 +1,8 @@
 :root {
   --background-color1: rgb(13, 20, 56);
   --background-color2: rgb(2, 0, 30);
-  --circle-color1: rgb(255, 49, 49);
-  --circle-color2: rgb(231, 0, 112);
+  --circle-color1: rgb(241, 47, 47);
+  --circle-color2: rgb(218, 0, 105);
   --circle-color3: rgb(27, 84, 255);
   --circle-color4: rgb(124, 42, 255);
   --glass-color: rgb(255, 255, 255, 0.25);
@@ -10,8 +10,8 @@
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0rem;
+  padding: 0rem;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   color: white;
@@ -36,13 +36,13 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0px 80px;
+  padding: 0rem 2rem;
 }
 
 main {
   height: 85vh;
   width: 100%;
-  padding: 0px 80px;
+  padding: 0rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,8 +50,8 @@ main {
 
 .sign-in-sign-up {
   background-color: var(--glass-color);
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
   border: 1px solid var(--glass-border-color);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -63,18 +63,18 @@ main > div {
 }
 
 .left-section {
-  transform: translateY(-50%); /* % of its own */
+  transform: translateY(-3rem);
 }
 
 .heading {
-  font-size: 55px;
+  font-size: 3.7rem;
   letter-spacing: 1px;
 }
 
 .sub-heading {
-  font-size: 25px;
+  font-size: 1.45rem;
   font-weight: normal;
-  letter-spacing: 2px;
+  letter-spacing: 0.13rem;
 }
 
 .right-section {
@@ -93,24 +93,73 @@ main > div {
 }
 
 .circle1 {
-  width: 600px;
-  height: 600px;
+  width: 37.5rem;
+  height: 37.5rem;
   border-radius: 50%;
   background: linear-gradient(180deg, var(--circle-color1), var(--circle-color2));
   transform: rotate(18deg);
   transform: rotate(18deg);
   /* filter: blur(2px); */
-  left: -120px;
-  top: -100px;
+  left: -7.5rem;
+  top: -6rem;
 }
 
 .circle2 {
-  width: 400px;
-  height: 400px;
+  width: 25rem;
+  height: 25rem;
   border-radius: 50%;
   background: linear-gradient(180deg, var(--circle-color3), var(--circle-color4));
   transform: rotate(18deg);
   /* filter: blur(2px); */
-  right: -50px;
-  bottom: -80px;
+  right: -3.5rem;
+  bottom: -5rem;
+}
+
+@media only screen and (max-width: 750px) {
+  nav {
+    height: 12vh;
+    padding: 0px 30px;
+  }
+  
+  main {
+    height: 88vh;
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  main > div {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .left-section {
+    transform: translateY(0px);
+  }
+  
+  .heading {
+    font-size: 39px;
+    letter-spacing: 1px;
+  }
+  
+  .sub-heading {
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
+  
+  .right-section {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .homepage-illustration {
+    width: 100%;
+  }
+
+  .circle1,
+.circle2 {
+  display: none;
+}
 }

@@ -3,15 +3,7 @@ const cardContainer = document.querySelector(".card-container");
 const logout = document.querySelector(".logout");
 const createNoteButton = document.querySelector(".new-note");
 const token = localStorage.getItem("jwt");
-
-logout.addEventListener("click", () => {
-  localStorage.removeItem("jwt");
-  location.href = "/";
-});
-
-createNoteButton.addEventListener("click", () => {
-  location.href = "/pages/createNotes/createNotes.html";
-});
+const body = document.querySelector("body");
 
 let cardData = [];
 
@@ -25,15 +17,35 @@ const createNotes = (array) => {
     card.classList.add("card");
     card.id = noteId;
 
-    const insideHtml = `<div class="card-header"><div class="card-heading">${heading}</div><a href="../updateNotes/updateNotes.html?noteId=${noteId}"><div class="edit-note"><img src="../../assets/edit-note.svg" alt="Edit Icon"></div></a></div><div class="card-content">${content}</div>`;
+    const insideHtml = `<div class="card-header"><div class="card-heading">${heading}</div><div class="card-options"><a href="../updateNotes/updateNotes.html?noteId=${noteId}"><div class="edit-note"><img src="../../assets/edit-note.svg" alt="Edit Icon" /></div></a><a href="#"><div class="delete-note"><img src="../../assets/delete-note.svg" alt="Delete Icon" /></div></a></div></div><div class="card-content">${content}</div>`;
 
     card.innerHTML = insideHtml;
+
+    const deleteNoteButton = card.querySelector(".delete-note");
+
+    deleteNoteButton.addEventListener("click", () => {
+      if (token) {
+        fetch(`${apiUrl}/note/delete/${noteId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            location.href = "/pages/dashboard/dashboard.html";
+          })
+          .catch((err) => {
+            alert("Error deleting note");
+            console.log(err);
+          });
+      }
+    });
 
     cardContainer.appendChild(card);
   });
 };
-
-const body = document.querySelector("body");
 
 window.addEventListener("load", () => {
   body.classList.add("visible");
@@ -55,4 +67,13 @@ window.addEventListener("load", () => {
         console.log(err);
       });
   }
+});
+
+logout.addEventListener("click", () => {
+  localStorage.removeItem("jwt");
+  location.href = "/";
+});
+
+createNoteButton.addEventListener("click", () => {
+  location.href = "/pages/createNotes/createNotes.html";
 });

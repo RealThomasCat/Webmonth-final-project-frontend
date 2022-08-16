@@ -32,7 +32,7 @@ body {
   opacity: 1;
 }
 
-.create-note-container {
+.update-note-container {
   background-color: var(--glass-color);
   width: 400px;
   height: 500px;
@@ -48,7 +48,7 @@ body {
 }
 
 
-.create-note-input {
+.update-note-input {
   border: none;
   height: 50%;
   width: 90%;
@@ -58,7 +58,7 @@ body {
   border-radius: 20px;
 }
 
-.create-note-heading {
+.update-note-heading {
   border: none;
   height: 10%;
   width: 90%;
@@ -68,8 +68,8 @@ body {
   border-radius: 20px;
 }
 
-.create-note-input:focus,
-.create-note-heading:focus {
+.update-note-input:focus,
+.update-note-heading:focus {
   outline: none;
 }
 
@@ -78,7 +78,7 @@ body {
   font-size: 30px;
 }
 
-.create-note-button {
+.update-note-button {
   background-color: transparent;
   padding: 10px;
   border-radius: 10px;

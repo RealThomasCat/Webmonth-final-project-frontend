@@ -21,10 +21,9 @@ body {
   min-height: 100vh;
   /* background: linear-gradient(90deg, var(--background-color1), var(--background-color2), var(--background-color1)); */
   background: var(--background-color1);
-  overflow: hidden;
+  /* overflow: hidden; */
   opacity: 0;
   transition: opacity 1s ease;
-  
 }
 
 .visible {
@@ -42,11 +41,14 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0px 80px;
-}
+} 
 
-.welcome {
+.welcome-user {
+  width: 300px;
   font-size: 40px;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-controls {
@@ -95,16 +97,22 @@ nav {
   align-items: center;
 }
 
+.card-options {
+  display: flex;
+}
+
 .card-heading {
   font-weight: bold;
   font-size: 20px;
 }
 
-.edit-note {
+.edit-note,
+.delete-note {
   height: 30px;
 }
 
-.edit-note > img {
+.edit-note > img,
+.delete-note > img {
   height: 100%;
   width: 100%;
 }
@@ -129,7 +137,11 @@ nav {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: linear-gradient(180deg, var(--circle-color1), var(--circle-color2));
+  background: linear-gradient(
+    180deg,
+    var(--circle-color1),
+    var(--circle-color2)
+  );
   transform: rotate(18deg);
   transform: rotate(18deg);
   /* filter: blur(2px); */
@@ -141,9 +153,81 @@ nav {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: linear-gradient(180deg, var(--circle-color3), var(--circle-color4));
+  background: linear-gradient(
+    180deg,
+    var(--circle-color3),
+    var(--circle-color4)
+  );
   transform: rotate(18deg);
   /* filter: blur(2px); */
   right: -50px;
   bottom: -80px;
+}
+
+@media only screen and (max-width: 750px) {
+
+  body {
+    
+  }
+
+  .card-container {
+    width: 100vw;
+    margin-top: 50px;
+    /* overflow-y: scroll; */
+    padding: 0px 20px;
+
+  }
+
+  .card {
+    width: 100%;
+    min-height: 400px;
+  }
+
+  .circle1,
+  .circle2 {
+    z-index: -5;
+    position: absolute;
+    opacity: 1;
+    display: none;
+  }
+ 
+  
+.welcome-user {
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+  transform: translateY(20px);
+}
+
+.user {
+  font-size: 65px;
+  transform: translateY(-20px);
+}
+
+nav {
+  height: 15vh;
+  padding: 0px 20px;
+} 
+
+.nav-controls {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transform: translateY(15px);
+  padding: 0px;
+}
+
+.nav-options {
+  margin: 0px;
+}
+
+.card-heading {
+  font-size: 30px;
+}
+
+.card-content {
+  font-size: 20px;
+}
+
 }
